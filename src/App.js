@@ -1,24 +1,28 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import Report from './components/Report';
+import Main from './components/Main';
+import About from './components/About';
+import Home from './components/Home';
 
 
-function App() {
-  return (
-    <div className="App">
-      <p style={{marginBottom: 40}}>Отчёт</p>
-      <Report
-        fullName='Джордж Клуни Сергеевич'
-        specialty='Стоматолог'
-        resultId='123456'
-        date='12.01.1992'
-        total='40'
-        correct='30'
-        wrong='5'
-        missed='5'
-      />
-    </div>
-  );
-}
+const App = () => (
+    <Router>
+      <div>
+        <h2>Accounts</h2>
+        <ul>
+          <li>
+            <Link to="/report">go to report page</Link>
+          </li>
+          <li>
+            <Link to="/about/123123">go to about page</Link>
+          </li>
+        </ul>
+        <Route path="/" component={Home} exact />
+        <Route path="/report" component={Main} exact />
+        <Route path="/about/:id" component={About} exact />
+      </div>
+    </Router>
+)
 
 export default App;

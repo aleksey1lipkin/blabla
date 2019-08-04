@@ -28,7 +28,7 @@ const ReportComponent = ({
         <Text style={styles.subtitle}>{strings.subtitle}</Text>
       </View>
       <View style={styles.content}>
-        <Details leftText={strings.fullName} rightText={fullName} />
+        {fullName ? <Details leftText={strings.fullName} rightText={fullName} /> : null}
         <Details leftText={strings.specialty} rightText={specialty} />
         <Details leftText={strings.resultId} rightText={resultId} />
         <Details leftText={strings.date} rightText={date} />
